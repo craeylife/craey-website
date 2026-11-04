@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="icon" href="favicon.svg" type="image/svg+xml"><title>Unsaid · CRAEY</title><meta name="theme-color" content="#0D0709"><meta name="robots" content="noindex"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wdth,wght@75..125,400..800&family=Anek+Latin:wdth,wght@75..125,300..800&display=swap"><style>/* Unsaid, the Spine: a black page, bone type, one red thread of time. Made to be written in for a lifetime, so no cut paper, tape, stamps or tilt.
+   Black #0D0709, bone #F1DCC6, ink #1A0B0E, crimson #C8102E, a brighter red #FF4B5C for small type on black, yellow #FFD60A only for what you can act on.
+   Anek Latin + Anek Devanagari only; no italics, no script type. */
+:root {
+  --black: #0D0709; --night: #0D0709; --paper: #F1DCC6; --ink: #1A0B0E; --crimson: #C8102E; --hot: #FF4B5C; --power: #FFD60A;
+  --mute: #B39A93; --dim: rgba(241, 220, 198, .62);
+  --display: "Anek Latin", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --deva: "Anek Devanagari", "Kohinoor Devanagari", "Noto Sans Devanagari", sans-serif;
+  --gut: clamp(16px, 5vw, 64px);
+  --swh: 52px;
+}
+* { box-sizing: border-box; }
+html { background: var(--night); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--night); color: var(--paper); font: 400 18px/1.6 var(--display); overflow-x: clip; }
+button, input, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+h1, h2, h3, p, ol { margin: 0; }
+:focus-visible { outline: 2px solid var(--power); outline-offset: 3px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+/* the slim black bar (class navtop: "top" is the most-marked line) on the live page and the Write desk (the board has its own switcher) */
+.navtop { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 12px; height: var(--swh); padding: 0 var(--gut); background: var(--black); border-bottom: 1px solid rgba(241, 220, 198, .16); color: var(--paper); }
+.navtop a, .navtop b { color: var(--paper); font: 700 17px/1 var(--display); font-stretch: 75%; letter-spacing: .22em; text-transform: uppercase; text-decoration: none; }
+.navtop span { font: 500 11px/1.2 var(--display); letter-spacing: .2em; text-transform: uppercase; color: var(--dim); }
+/* ===== READ: the live page and the Write desk preview =====
+   A thread of time runs down the page, a huge ghost numeral marks each year, every letter hangs off the thread. Marking a line is the one gesture:
+   your marks are red text, the crowd's marks are an underline that grows with the number. Older years fold up behind their numerals. */
+.sn-page { color-scheme: dark; position: relative; max-width: 1120px; margin: 0 auto; padding: 0 var(--gut) 160px; }
+.sn-head { padding: 36px 0 4px; }
+.sn-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; font: 700 clamp(56px, 10vw, 120px)/.85 var(--display); font-stretch: 75%; text-transform: uppercase; }
+.sn-title span { font: 700 clamp(30px, 5vw, 60px)/1 var(--deva); text-transform: none; color: var(--hot); }
+.sn-lede { margin-top: 18px; font: 500 15px/1.4 var(--display); color: var(--dim); }
+.sn-bar { position: sticky; top: calc(var(--swh) + env(safe-area-inset-top, 0px)); z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; padding: 12px 0; background: linear-gradient(var(--night) 72%, transparent); }
+.sn-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.sn-chips a { padding: 8px 10px; border-bottom: 1px solid transparent; color: var(--dim); font: 500 14px/1 var(--display); letter-spacing: .12em; font-variant-numeric: tabular-nums; text-decoration: none; }
+.sn-chips a[aria-current] { color: var(--paper); border-color: var(--hot); }
+@media (hover: hover) { .sn-chips a:hover { color: var(--paper); } }
+.wb { appearance: none; cursor: pointer; margin-left: auto; white-space: nowrap; padding: 11px 18px; border: 1px solid rgba(241, 220, 198, .45); border-radius: 999px; background: transparent; color: var(--paper); font: 600 12px/1 var(--display); letter-spacing: .2em; text-transform: uppercase; }
+@media (hover: hover) { .wb:hover { background: var(--paper); color: var(--ink); } }
+
+/* the thread, the years, the letters */
+.sn { --P: clamp(30px, 6vw, 96px); --L: clamp(8px, 2vw, 28px); position: relative; padding-left: var(--P); }
+.sn::before { content: ""; position: absolute; left: var(--L); top: 0; bottom: 0; width: 1px; background: linear-gradient(var(--hot), rgba(255, 75, 92, .12)); }
+.sn-year { position: relative; padding-top: clamp(84px, 13vw, 160px); scroll-margin-top: calc(var(--swh) + 70px); }
+.sn-gy { position: absolute; top: 0; left: -.03em; font: 800 clamp(130px, 26vw, 330px)/.8 var(--display); font-stretch: 75%; color: transparent; -webkit-text-stroke: 1px rgba(241, 220, 198, .16); font-variant-numeric: tabular-nums; pointer-events: none; user-select: none; }
+.sn-item { --mk: var(--hot); position: relative; max-width: 40rem; margin: 0 0 clamp(48px, 7vw, 86px); scroll-margin-top: calc(var(--swh) + 70px); }
+.sn-node { position: absolute; left: calc(var(--L) - var(--P) - 5px); top: .3em; width: 11px; height: 11px; border-radius: 50%; background: var(--hot); box-shadow: 0 0 0 5px var(--night); }
+.by-visitor .sn-node { background: var(--night); border: 2px solid var(--power); }
+.sn-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font: 500 13px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.tg { font: 800 11px/1 var(--display); letter-spacing: .22em; text-transform: uppercase; color: var(--hot); }
+.tg-v { color: var(--power); }
+.tg-s { padding: 4px 8px; border: 1px solid currentColor; font: 700 11px/1 var(--display); letter-spacing: .18em; text-transform: uppercase; }
+.sn-to { margin: 14px 0 0; font: 700 clamp(30px, 4.4vw, 52px)/1 var(--display); font-stretch: 80%; color: #FFF4EA; overflow-wrap: anywhere; }
+.sn-body { margin-top: 18px; font: 400 clamp(19px, 2vw, 23px)/1.65 var(--display); }
+.sn-item.clamp:not(.open) .sn-body { max-height: 7em; overflow: hidden; -webkit-mask-image: linear-gradient(#000 38%, transparent); mask-image: linear-gradient(#000 38%, transparent); }
+.sn-item.clamp:not(.open) .ln, .sn-item.clamp:not(.open) .m-most { pointer-events: none; }
+.sn-item.clamp:not(.open) .m-most { display: none; }
+.sn-act { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 14px; }
+.sn-more, .db-share { appearance: none; cursor: pointer; padding: 6px 0; border: 0; background: none; color: var(--paper); opacity: .8; font: 700 12px/1 var(--display); letter-spacing: .18em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 5px; }
+.sn-more { opacity: 1; }
+@media (hover: hover) { .sn-more:hover, .db-share:hover { opacity: 1; } }
+.sn-year.folded { padding-top: clamp(50px, 7.5vw, 92px); padding-bottom: clamp(30px, 5vw, 56px); }
+.sn-year.folded .sn-gy { font-size: clamp(84px, 14vw, 168px); }
+.sn-year.folded .sn-item { display: none; }
+.sn-fold { appearance: none; cursor: pointer; position: relative; display: flex; align-items: center; gap: 12px; padding: 10px 0; border: 0; background: none; color: var(--paper); font: 700 clamp(28px, 4vw, 44px)/1 var(--display); font-stretch: 80%; font-variant-numeric: tabular-nums; }
+.sn-fold small { padding: 4px 9px; border-radius: 999px; background: var(--hot); color: var(--ink); font: 700 13px/1 var(--display); }
+.sn-fold::before { content: ""; position: absolute; left: calc(var(--L) - var(--P) - 5px); top: 50%; width: 11px; height: 11px; margin-top: -5px; border-radius: 50%; background: var(--night); border: 2px solid var(--hot); box-sizing: border-box; }
+.sn-foot { margin-top: 56px; font: 500 14px/1.4 var(--display); color: var(--dim); }
+
+/* a line of a letter: the thing you tap */
+.ln { display: block; width: 100%; margin: 0; padding: .14em 0; border: 0; background: none; text-align: left; color: inherit; font: inherit; cursor: pointer; position: relative; appearance: none; }
+.ln-t { background: linear-gradient(var(--mk, var(--hot)), var(--mk, var(--hot))) no-repeat 0 100% / 0% 2px; transition: background-size .45s; }
+.seen .ln-t { background-size: calc(var(--w, 0) * 100%) 2px; }
+.ln.on .ln-t { color: var(--hot); background-position: 0 96%; background-size: 100% .1em; }
+.ln.top .ln-t { color: var(--power); }
+.ln-c { margin-left: .6em; font: 700 .56em/1 var(--display); font-variant-numeric: tabular-nums; opacity: 0; vertical-align: .35em; transition: opacity .4s calc(var(--i, 0) * 50ms); }
+.seen .ln-c { opacity: .85; }
+.ln.loud { font-weight: 700; font-size: 1.12em; }
+.ln.static { cursor: default; }
+.db-gap { height: 1.1em; }
+.db-x { color: var(--dim); text-decoration: line-through; text-decoration-color: var(--hot); text-decoration-thickness: .09em; }
+.m-most { margin-top: 26px; font: 500 14px/1.5 var(--display); color: var(--dim); } .m-most b { color: var(--power); font-weight: 700; }
+.sn-fig { margin: 22px 0; }
+.sn-fig img, .sn-fig svg { display: block; width: 100%; height: auto; border: 1px solid rgba(241, 220, 198, .25); }
+.sn-fig svg { background: rgba(241, 220, 198, .05); }
+.sn-fig .hl { fill: none; stroke: rgba(241, 220, 198, .2); stroke-width: 1; }
+.sn-fig figcaption { margin-top: 8px; font: 500 14px/1.4 var(--display); color: var(--dim); }
+
+/* the tray (your marks, copy them) and the copy box */
+.m-tray { position: fixed; z-index: 40; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: flex; align-items: center; gap: 12px; padding: 8px 8px 8px 20px; white-space: nowrap; background: var(--night); border: 1px solid rgba(241, 220, 198, .4); border-radius: 999px; box-shadow: 0 12px 40px rgba(0, 0, 0, .55); color: var(--paper); }
+.m-tcount { font: 700 13px/1 var(--display); letter-spacing: .1em; text-transform: uppercase; }
+.m-tray button { appearance: none; cursor: pointer; padding: 12px 18px; border: 0; border-radius: 999px; background: var(--power); color: var(--night); font: 800 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; }
+.m-tray button.ghost { background: transparent; color: var(--paper); box-shadow: inset 0 0 0 1px rgba(241, 220, 198, .5); }
+.m-copybox { position: fixed; z-index: 70; left: 50%; bottom: calc(86px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); width: min(520px, calc(100% - 32px)); padding: 14px; background: var(--paper); color: var(--ink); border-radius: 8px; box-shadow: 0 10px 40px rgba(0, 0, 0, .7); }
+.m-copybox p { margin: 0 0 8px; font: 700 12px/1.3 var(--display); letter-spacing: .1em; text-transform: uppercase; }
+.m-copybox textarea { width: 100%; height: 110px; padding: 8px; border: 1px solid var(--ink); background: #fff7ee; font: 500 15px/1.4 var(--display); }
+
+/* the sheet where a visitor writes */
+.spf { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 16px; background: rgba(5, 3, 4, .88); overflow-y: auto; }
+.spf-p { width: min(560px, 100%); margin: auto; padding: 24px; background: #150B0E; color: var(--paper); border: 1px solid rgba(241, 220, 198, .25); }
+.spf-body { display: grid; gap: 14px; }
+.spf label { display: grid; gap: 8px; font: 700 12px/1 var(--display); letter-spacing: .22em; text-transform: uppercase; color: var(--dim); }
+.spf input, .spf textarea { width: 100%; padding: 12px 0; border: 0; border-bottom: 1px solid rgba(241, 220, 198, .45); border-radius: 0; background: none; color: var(--paper); font: 400 20px/1.5 var(--display); }
+.spf textarea { min-height: 200px; resize: vertical; }
+.spf input:focus-visible, .spf textarea:focus-visible { outline: none; border-color: var(--power); }
+.spf-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.spf-mail, .spf-close { appearance: none; cursor: pointer; padding: 13px 22px; border: 0; border-radius: 999px; font: 800 12px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; text-decoration: none; }
+.spf-mail { background: var(--power); color: var(--ink); }
+.spf-close { background: transparent; box-shadow: inset 0 0 0 1px rgba(241, 220, 198, .5); color: var(--paper); }
+
+@media (max-width: 700px) {
+  .sn-bar { gap: 6px; } .sn-chips a { padding: 8px 6px; letter-spacing: .04em; } .wb { padding: 10px 14px; letter-spacing: .14em; }
+}
+@media (prefers-reduced-motion: reduce) { .ln-t, .ln-c { transition: none; } }
+</style></head><body><nav class="navtop"><a href="../">CRAEY</a></nav><main id="unsaid" class="sn-page" data-api="" data-demo="0"><header class="sn-head"><h1 class="sn-title">Unsaid <span lang="hi">अनकही</span></h1></header><div class="sn-bar"><nav class="sn-chips" aria-label="Years"></nav><button class="wb" type="button" data-write>Write yours</button></div><div class="m-tray" hidden><span class="m-tcount"></span><button class="m-clear ghost" type="button">Clear</button><button class="m-copy" type="button">Copy bars</button></div></main><div class="spf" id="spf" data-mail="craeysam@gmail.com" hidden><div class="spf-p" role="dialog" aria-label="Write a letter"><div class="spf-body"><label>To<input maxlength="40" autocomplete="off"></label><textarea maxlength="600" aria-label="Your letter"></textarea><div class="spf-row"><a class="spf-mail" href="#">Send by email</a><button class="spf-close" type="button">Cancel</button></div></div></div></div><script>(() => {
+  'use strict';
+  /* ============ core: helpers, how a letter is read, and a letter's markup for the Write desk preview ============
+     Letter syntax: one line = one line on the page (and one thing a visitor can mark). ~~crossed out~~ inside a line. **a whole line** is loud.
+     [page: file.jpg] or [page: file.jpg | what the page says] on its own line is a photo of a handwritten page. A blank line starts a new part.
+     The live page is rendered by build_unsaid.py (same markup as itemHTML below); this file renders the board and the Write desk preview. */
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const el = (t, c, txt) => { const x = document.createElement(t); if (c) x.className = c; if (txt) x.textContent = txt; return x; };
+  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const rng = a => () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const pad = n => String(n).padStart(2, '0');
+  const prettyDate = d => `${d.getDate()} ${MON[d.getMonth()]} ${d.getFullYear()}`;
+  const prettyTime = d => `${d.getHours() % 12 || 12}:${pad(d.getMinutes())} ${d.getHours() < 12 ? 'AM' : 'PM'}`;
+
+  const parseLine = raw => {
+    let t = raw.trim(), loud = false;
+    const m = t.match(/^\*\*(.+)\*\*$/); if (m) { loud = true; t = m[1]; }
+    return { html: esc(t).replace(/~~(.+?)~~/g, '<s class="db-x">$1</s>'), plain: t.replace(/~~(.+?)~~/g, '').replace(/\s{2,}/g, ' ').trim(), loud };
+  };
+  const items = text => text.split('\n').map(r => r.trim()).map(r => {
+    if (!r) return { k: 'gap' };
+    const p = r.match(/^\[page:\s*(.*?)\]$/i); if (p) { const [name, ...c] = p[1].split('|'); return { k: 'page', name: name.trim(), cap: c.join('|').trim() }; }
+    return Object.assign({ k: 'bar' }, parseLine(r));
+  });
+  const bars = l => items(l.text).filter(x => x.k === 'bar').map(x => x.plain);
+  const render = (text, mk) => {
+    let bi = 0, out = '', prev = 'gap';
+    items(text).forEach(it => {
+      if (it.k === 'gap') { if (prev !== 'gap') out += '<div class="db-gap"></div>'; prev = 'gap'; return; }
+      out += it.k === 'page' ? mk.page(it.name, it.cap) : mk.bar(it, bi++); prev = it.k;
+    });
+    return out;
+  };
+  // sample crowd numbers for the board and the sample build (the real numbers come from the counter service)
+  const demoBase = (n, k) => {
+    const seed = parseInt(n, 10) || [...String(n)].reduce((a, c) => (a * 31 + c.charCodeAt(0)) | 0, 7), r = rng(seed * 131 + 9), hot = new Set([Math.floor(r() * k), Math.floor(r() * k)]);
+    return Array.from({ length: k }, (_, i) => parseInt(n, 10) % 100 === 3 ? 0 : hot.has(i) ? 90 + Math.floor(r() * 260) : 2 + Math.floor(r() * r() * 40));
+  };
+
+  // ---- one letter as it reads on the page (the Write desk preview; the live page is written out by build_unsaid.py with the same markup)
+  const figHTML = (name, cap) => {
+    const sample = !name || /^sample$/i.test(name), c = cap ? esc(cap) : sample ? 'Sample · your handwritten page goes here' : `Your photo “${esc(name)}” goes here`;
+    return `<figure class="sn-fig"><svg viewBox="0 0 400 214" aria-hidden="true"><path class="hl" d="M0,40H400M0,70H400M0,100H400M0,130H400M0,160H400M0,190H400"/></svg><figcaption>${c}</figcaption></figure>`;
+  };
+  const itemHTML = l => {
+    const lines = render(l.text, {
+      bar: p => `<div class="ln static${p.loud ? ' loud' : ''}"><span class="ln-t">${p.html}</span></div>`,
+      page: figHTML
+    }) || '<div class="ln static ghost"><span class="ln-t">Your first line goes here</span></div>';
+    return `<i class="sn-node"></i><div class="sn-meta"><span class="tg">${/^\d+$/.test(l.n) ? 'No. ' + l.n : 'New'}</span><span>${esc(l.date)}${l.time ? ' · ' + esc(l.time) : ''}</span>${l.stamp ? `<span class="tg-s">${esc(l.stamp)}</span>` : ''}${l.edited ? `<span>Edited ${esc(l.edited)}</span>` : ''}</div>
+      <h3 class="sn-to">${esc(l.to)}</h3><div class="sn-body">${lines}</div>`;
+  };
+  /* ============ read: marking, crowd heat, the tray ============
+     Tap a line to mark it. Once you have marked one line in a letter, the crowd's marks show on every line of that letter,
+     plus the most-marked line. Your marks stay on your device. Where the crowd's numbers come from is a "source":
+       apiSrc   the counter service (contract below)         demoSrc  sample numbers (the board and --sample builds)
+       noneSrc  no counter yet: marks are yours only, no crowd numbers are shown
+     Counter contract (only used when the page has data-api; a static host has no server of its own):
+       GET  {api}/marks?n=003                    -> {"n":"003","counts":[0,12,3,...]}   one number per line, in order
+       POST {api}/mark  {n, i, on, id}           -> the same object (on:true adds this device's mark, false takes it back;
+                                                    id is a random per-device string, so one device counts once per line) */
+  function makeMarks(key) {
+    const M = { id: '', marks: {}, save() { try { localStorage.setItem(key, JSON.stringify({ id: M.id, marks: M.marks })); } catch (e) {} } };
+    try { const o = JSON.parse(localStorage.getItem(key) || '{}'); if (o.marks && typeof o.marks === 'object') M.marks = o.marks; if (typeof o.id === 'string') M.id = o.id; } catch (e) {}
+    if (!M.id) { try { M.id = Array.from(crypto.getRandomValues(new Uint8Array(8)), b => b.toString(16).padStart(2, '0')).join(''); } catch (e) { M.id = String(Math.random()).slice(2, 18); } }
+    return M;
+  }
+  const noneSrc = () => ({ counts: () => null });
+  const demoSrc = () => { const cache = {}; return { counts: (n, mk, k) => (cache[n] || (cache[n] = demoBase(n, k))).map((v, i) => v + (mk.has(i) ? 1 : 0)) }; };
+  function apiSrc(api, M) {
+    const cache = {}, got = j => (j && Array.isArray(j.counts) ? j.counts : null);
+    return {
+      counts: n => cache[n] || null,
+      async load(n) { try { const r = await fetch(`${api}/marks?n=${n}`); if (r.ok) cache[n] = got(await r.json()); } catch (e) {} },
+      async mark(n, i, on) { try { const r = await fetch(`${api}/mark`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ n, i, on, id: M.id }) }); if (r.ok) cache[n] = got(await r.json()); } catch (e) {} }
+    };
+  }
+  const TRAY = '<div class="m-tray" hidden><span class="m-tcount"></span><button class="m-clear ghost" type="button">Clear</button><button class="m-copy" type="button">Copy bars</button></div>';
+
+  // copy text to the clipboard; if the browser blocks it, show the text in a box to copy by hand
+  async function copyText(text, btn, root) {
+    let ok = false;
+    try { await navigator.clipboard.writeText(text); ok = true; } catch (err) {
+      const ta = el('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;opacity:0'; document.body.append(ta); ta.select();
+      try { ok = document.execCommand('copy'); } catch (e2) {} ta.remove();
+    }
+    const was = btn.textContent;
+    if (ok) { btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = was; }, 1400); return; }
+    const box = el('div', 'm-copybox'); box.innerHTML = '<p>Copying is blocked here. Select and copy:</p><textarea readonly></textarea>'; $('textarea', box).value = text; root.append(box);
+    $('textarea', box).select(); setTimeout(() => box.remove(), 12000);
+  }
+
+  // make a rendered page (board or live) respond: marks, crowd numbers, copy
+  function enhance(root, src, M, linkBase) {
+    const tray = $('.m-tray', root), tcount = $('.m-tcount', root), plain = b => b.dataset.p || '';
+    const total = () => Object.values(M.marks).reduce((a, v) => a + v.length, 0);
+    const syncTray = () => { const t = total(); tray.hidden = !t; tcount.textContent = t + (t === 1 ? ' bar marked' : ' bars marked'); };
+    function paint(sh) {
+      const n = sh.dataset.n, mk = new Set(M.marks[n] || []), bs = $$('.m-bar', sh), raw = mk.size ? src.counts(n, mk, bs.length) : null;
+      const counts = raw && bs.map((_, i) => raw[i] | 0), max = counts ? Math.max(1, ...counts) : 1;
+      const first = !!counts && counts.every((c, i) => c === (mk.has(i) ? 1 : 0));
+      bs.forEach((b, i) => {
+        b.setAttribute('aria-pressed', String(mk.has(i))); b.classList.toggle('on', mk.has(i)); b.classList.toggle('top', !!counts && counts[i] === max && max > 1);
+        const c = $('[data-cnt]', b); if (c) c.textContent = counts ? counts[i] : '';
+        b.style.setProperty('--w', counts ? (counts[i] / max).toFixed(3) : '0');
+      });
+      sh.classList.toggle('seen', !!counts);
+      const most = $('.m-most', sh);
+      if (most) { most.hidden = !counts; if (counts) most.innerHTML = first ? 'You are the first to mark this one.' : `Most marked <b>${max}</b> “${esc(plain(bs[counts.indexOf(max)]))}”`; }
+    }
+    const paintAll = () => $$('.m-sheet', root).forEach(paint);
+    const marksText = () => {
+      const out = [];
+      $$('.m-sheet', root).forEach(sh => { const set = M.marks[sh.dataset.n]; if (!set) return; const bs = $$('.m-bar', sh); set.forEach(i => bs[i] && out.push(`“${plain(bs[i])}”`)); out.push(`— ${sh.classList.contains('by-visitor') ? 'A visitor' : 'CRAEY'}, Unsaid No. ${sh.dataset.n}`, ''); });
+      out.push('craey.life'); return out.join('\n');
+    };
+    root.addEventListener('click', e => {
+      const b = e.target.closest('.m-bar');
+      if (b) {
+        const sh = b.closest('.m-sheet'), n = sh.dataset.n, i = +b.dataset.i, set = new Set(M.marks[n] || []), on = !set.has(i);
+        on ? set.add(i) : set.delete(i);
+        if (set.size) M.marks[n] = [...set].sort((x, y) => x - y); else delete M.marks[n];
+        M.save(); paint(sh); syncTray();
+        Promise.resolve(src.mark && src.mark(n, i, on)).then(() => paint(sh));
+        return;
+      }
+      if (e.target.closest('.m-clear')) {
+        const old = M.marks; M.marks = {}; M.save(); paintAll(); syncTray();
+        if (src.mark) Object.entries(old).forEach(([n, v]) => v.forEach(i => src.mark(n, i, false)));
+        return;
+      }
+      const c = e.target.closest('.m-copy'); if (c) { copyText(marksText(), c, root); return; }
+      const s = e.target.closest('.db-share'); if (s) copyText((linkBase || location.href.split('#')[0]) + '#' + s.dataset.share, s, root);
+    });
+    const refresh = () => { paintAll(); syncTray(); };
+    paintAll(); syncTray();
+    if (src.load) $$('.m-sheet', root).forEach(sh => { if (M.marks[sh.dataset.n]) src.load(sh.dataset.n).then(() => paint(sh)); });
+    return { refresh };
+  }
+  /* ============ the live page: the HTML is already there (build_unsaid.py), this makes it respond ============
+     Marking and crowd numbers (read.js), the thread's years (older years fold up once there are more than a few letters, so the page stays
+     short however many years it holds), long letters ("Read on"), links to a letter or a year, and the sheet a visitor writes in. */
+  const page = $('#unsaid'), api = (page.dataset.api || '').replace(/\/$/, ''), M = makeMarks('craey-unsaid-marks-v1');
+  enhance(page, api ? apiSrc(api, M) : page.dataset.demo === '1' ? demoSrc() : noneSrc(), M);
+
+  const years = $$('.sn-year', page), hashEl = () => { try { return document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) { return null; } };
+  const unfold = y => { y.classList.remove('folded'); const f = $('.sn-fold', y); if (f) f.hidden = true; };
+  // older years fold behind their numeral (the newest year and the year you came to see stay open); with only a few letters nothing folds
+  if (years.length > 1 && $$('.sn-item', page).length > 6) {
+    const t = hashEl(), keep = t ? t.closest('.sn-year') : null;
+    years.slice(1).forEach(y => {
+      if (y === keep) return;
+      const b = el('button', 'sn-fold'); b.type = 'button'; b.dataset.yt = y.dataset.y; b.append(y.dataset.y, el('small', '', String($$('.sn-item', y).length)));
+      y.append(b); y.classList.add('folded');
+    });
+  }
+  // a long letter shows its first lines until you ask for the rest
+  $$('.sn-item', page).forEach(it => { const m = $('.sn-more', it); if (m) { it.classList.add('clamp'); m.hidden = false; } });
+  const toggleMore = (it, on) => { it.classList.toggle('open', on); const m = $('.sn-more', it); if (m) m.textContent = on ? 'Close' : 'Read on'; };
+  const goHash = () => {
+    const t = hashEl(); if (!t) return;
+    const y = t.closest('.sn-year'); if (y) unfold(y);
+    if (t.classList.contains('clamp')) toggleMore(t, true);
+    requestAnimationFrame(() => t.scrollIntoView({ block: 'start' }));
+  };
+  page.addEventListener('click', e => {
+    const f = e.target.closest('.sn-fold'); if (f) { unfold(f.parentNode); return; }
+    const m = e.target.closest('.sn-more'); if (m) toggleMore(m.closest('.sn-item'), !m.closest('.sn-item').classList.contains('open'));
+  });
+  addEventListener('hashchange', goHash);
+  if (location.hash) goHash();
+
+  // the year chip for the year you are reading
+  const chips = $$('.sn-chips a', page);
+  function spy() {
+    let cur = years[0] ? years[0].dataset.y : '';
+    years.forEach(y => { if (y.getBoundingClientRect().top < innerHeight * .45) cur = y.dataset.y; });
+    chips.forEach(a => a.toggleAttribute('aria-current', a.getAttribute('href') === '#y' + cur));
+  }
+  if (chips.length) { let raf = 0; addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(spy); }, { passive: true }); spy(); }
+
+  // the sheet where a visitor writes: it opens an email to CRAEY (a letter goes up only when he puts it up)
+  const sheet = $('#spf'), wbtn = $('[data-write]', page);
+  if (sheet && wbtn) {
+    const to = $('input', sheet), ta = $('textarea', sheet), mail = $('.spf-mail', sheet), addr = sheet.dataset.mail;
+    const href = () => { mail.href = `mailto:${addr}?subject=${encodeURIComponent('Unsaid')}&body=${encodeURIComponent((to.value.trim() ? 'To ' + to.value.trim() + '\n\n' : '') + ta.value)}`; };
+    const close = () => { sheet.hidden = true; wbtn.focus(); };
+    wbtn.addEventListener('click', () => { sheet.hidden = false; ta.focus(); href(); });
+    sheet.addEventListener('input', href);
+    sheet.addEventListener('click', e => { if (e.target === sheet || e.target.closest('.spf-close')) close(); });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !sheet.hidden) close(); });
+  }
+})();
+</script></body></html>
