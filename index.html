@@ -856,7 +856,31 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
   *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; }
   .intro-word { display: none; }
 }
-</style>
+/*unsaid-css*//* Unsaid on the home page: his newest letter, hanging off the same red thread as the letters page, with the year as a ghost numeral behind it. Made only of his words. */
+/* like the other sections below the fold: rendered as it nears the screen, which keeps the top-bar link landing on it */
+#unsaid { content-visibility: auto; contain-intrinsic-size: auto 560px; }
+#unsaid .sec-aside p { margin: 0; font: 700 clamp(30px, 4.4vw, 60px)/1 "Anek Devanagari", var(--display); color: var(--accent-ink, var(--sand)); }
+.ut { --th: #FF4B5C; position: relative; isolation: isolate; display: block; max-width: 760px; padding: 22px 0 6px clamp(40px, 7vw, 84px); color: var(--sand, #F1DCC6); text-decoration: none; }
+.ut::before { content: ""; position: absolute; left: 10px; top: 30px; bottom: 0; width: 1px; background: linear-gradient(var(--th), rgba(255, 75, 92, .12)); }
+.ut::after { content: ""; position: absolute; left: 5px; top: 25px; width: 11px; height: 11px; border-radius: 50%; background: var(--th); }
+.ut:focus-visible { outline: 2px solid #FFD60A; outline-offset: 8px; }
+.ut .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ut-gy { position: absolute; z-index: -1; top: 6px; left: clamp(30px, 5vw, 70px); font: 800 clamp(120px, 24vw, 280px)/.8 var(--display); font-stretch: 75%; color: transparent; -webkit-text-stroke: 1px rgba(241, 220, 198, .16); font-variant-numeric: tabular-nums; pointer-events: none; user-select: none; }
+.ut-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font: 500 13px/1 var(--display); letter-spacing: .16em; text-transform: uppercase; color: rgba(241, 220, 198, .62); }
+.ut-no { font-weight: 800; font-size: 11px; letter-spacing: .22em; color: var(--th); }
+.ut-tag { padding: 4px 8px; border: 1px solid currentColor; font-weight: 700; font-size: 11px; letter-spacing: .18em; }
+.ut-sample { padding: 4px 8px; border: 1px solid #FFD60A; color: #FFD60A; font-weight: 700; font-size: 11px; letter-spacing: .18em; }
+.ut-to { display: block; margin-top: 14px; font: 700 clamp(34px, 5.4vw, 64px)/1 var(--display); font-stretch: 80%; color: #FFF4EA; overflow-wrap: anywhere; }
+.ut-lines { display: grid; gap: .25em; margin-top: 18px; font: 400 clamp(19px, 2vw, 23px)/1.5 var(--display); }
+.ut-ln { display: block; }
+.ut-loud { font-weight: 700; font-size: 1.12em; }
+.ut .db-x { color: rgba(241, 220, 198, .62); text-decoration: line-through; text-decoration-color: var(--th); text-decoration-thickness: .09em; }
+.ut-go { display: inline-flex; align-items: center; gap: 12px; margin-top: 26px; padding: 12px 18px; border: 1px solid rgba(241, 220, 198, .45); border-radius: 999px; font: 600 12px/1 var(--display); letter-spacing: .2em; text-transform: uppercase; transition: background .25s, color .25s; }
+.ut-go .arrow { width: 18px; height: 18px; }
+.ut-n { padding: 3px 8px; border-radius: 999px; background: var(--th); color: #1A0B0E; letter-spacing: 0; }
+@media (hover: hover) { .ut:hover .ut-go { background: var(--sand, #F1DCC6); color: #1A0B0E; border-color: transparent; } }
+@media (prefers-reduced-motion: reduce) { .ut-go { transition: none; } }
+/*unsaid-css-end*/</style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
@@ -887,6 +911,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
       <a href="#videos">Videos</a>
       <a href="#lab">Beat lab</a>
       <a class="opt" href="#shows">Shows</a>
+      <a href="#unsaid">Unsaid</a>
       <a href="#listen">Listen</a>
       <a class="opt" href="#contact">Contact</a>
     </nav>
@@ -1212,6 +1237,18 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
         <div class="sec-aside"><p>Where to catch CRAEY next.</p></div>
       </div>
       <div class="shows-empty"><p>No shows announced yet</p><a class="btn btn-solid" href="#contact">Book CRAEY</a></div>
+    </div>
+  </section>
+
+  <section class="section gut" id="unsaid" aria-labelledby="unsaid-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="sec-title" id="unsaid-h"><span class="split"><span class="split-a">Unsaid</span><span class="split-b" aria-hidden="true">Unsaid</span></span></h2>
+        </div>
+        <div class="sec-aside"><p lang="hi">अनकही</p></div>
+      </div>
+      <a class="ut" href="unsaid/"><span class="ut-gy" aria-hidden="true">2026</span><span class="ut-meta"><span class="ut-no">No. 001</span><span>5 Nov 2026 · 2:44 AM</span></span><span class="ut-to"><span class="vh">To </span>Didi</span><span class="ut-lines"><span class="ut-ln">A line for her.</span><span class="ut-ln">Another line.</span></span><span class="ut-go">All letters <span class="ut-n">1</span><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
     </div>
   </section>
 
