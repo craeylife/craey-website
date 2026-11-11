@@ -861,6 +861,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
   .btn.ping { animation: labping 1.5s ease-out 4; }
 }
 
+/* back from negative */
+.neg-off { margin-left: 8px; padding: 9px 13px; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); font: 700 11px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; }
+.neg-off[hidden] { display: none; }
+@media (max-width: 560px) { .neg-off { margin-left: 4px; padding: 8px 10px; } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; }
   .intro-word { display: none; }
@@ -932,6 +937,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
       <button type="button" id="mode-loud" data-mode-set="loud" aria-pressed="true">Loud</button>
       <button type="button" id="mode-quiet" data-mode-set="quiet" aria-pressed="false">Quiet</button>
     </div>
+    <button type="button" class="neg-off" id="neg-off" aria-label="Back to the normal colours" hidden>Normal</button>
   </div>
 </header>
 
@@ -1467,15 +1473,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
   // No points or ranks: these only remember what a visitor has done
   function award() {}
   function unlock(id) { if (G.ach[id]) return; G.ach[id] = true; save(); }
-  function setNeg(v) { G.neg = v; root.classList.toggle('neg', v); save(); }
-  if (G.neg) root.classList.add('neg');
+  const negOff = $('#neg-off');
+  function setNeg(v) { G.neg = v; root.classList.toggle('neg', v); negOff.hidden = !v; save(); }
+  if (G.neg) { root.classList.add('neg'); negOff.hidden = false; }
+  negOff.addEventListener('click', () => { setNeg(false); pop('Positive', 'Back to normal', true); sfx('tick'); });
 
   /* The secret: type the name anywhere, or tap the logo five times */
   function secret() {
     flash(1); shake(); sfx('whoosh'); kick(1);
     unlock('secret');
     setNeg(!G.neg);
-    pop(G.neg ? 'Negative' : 'Positive', G.neg ? 'Type CRAEY again to flip back' : 'Back to normal', true);
+    pop(G.neg ? 'Negative' : 'Positive', G.neg ? 'Tap Normal, or type CRAEY, to flip back' : 'Back to normal', true);
   }
   let typed = '';
   addEventListener('keydown', e => {
