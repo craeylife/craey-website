@@ -14,6 +14,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://craey.life/#site","url":"https://craey.life/","name":"CRAEY","alternateName":"क्रे","inLanguage":"en"},{"@type":"MusicGroup","@id":"https://craey.life/#artist","name":"CRAEY","alternateName":"क्रे","url":"https://craey.life/","description":"CRAEY (क्रे) is an independent rapper from India. Fourteen videos, the music, a beat lab and booking.","genre":"Hip hop","image":"https://craey.life/og.jpg","sameAs":["https://www.youtube.com/@craey","https://open.spotify.com/artist/1t1kXHEU7xPAXDqBYkOvnd","https://music.apple.com/in/artist/craey/1675649883","https://www.instagram.com/craaey/"]}]}</script>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>CRAEY Official Site</title>
 <meta name="description" content="CRAEY (क्रे) is an independent rapper from India. Fourteen videos, the music, a beat lab and booking.">
@@ -852,6 +853,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
 
 .lab.solo { grid-template-columns: minmax(0, 1fr); max-width: 980px; }
 
+/* share your beat */
+.lab-sent { display: inline-block; margin: 0 0 14px; padding: 8px 12px; border: 1px solid var(--accent); border-radius: 999px; font: 600 11px/1 var(--display); letter-spacing: .2em; text-transform: uppercase; color: var(--accent-ink); }
+.lab-sent[hidden] { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes labping { from { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 65%, transparent); } to { box-shadow: 0 0 0 18px transparent; } }
+  .btn.ping { animation: labping 1.5s ease-out 4; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; }
   .intro-word { display: none; }
@@ -928,7 +937,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
 
 <main id="top">
   <section class="hero" aria-label="CRAEY">
-    <img class="hero-fallback" src="img/hero.jpg" fetchpriority="high" alt="CRAEY in profile, black and white, blurred like a long exposure" width="1185" height="1400">
+    <img class="hero-fallback" src="img/hero.webp" fetchpriority="high" alt="CRAEY in profile, black and white, blurred like a long exposure" width="1185" height="1400">
     <canvas class="hero-gl" id="hero-gl" aria-hidden="true"></canvas>
     <div class="intro-word deva" aria-hidden="true">क्रे</div>
     <div class="vf" aria-hidden="true">
@@ -1059,7 +1068,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
           </div>
           <div class="po-label">
             <p class="label">Introduction</p>
-            <p><b>CRAEY</b> (<span class="deva" lang="hi">क्रे</span>) is an independent rapper from India. <a class="song" href="https://www.youtube.com/watch?v=Y-03f1b8jrI" target="_blank" rel="noopener" style="--img:url('img/unlove.jpg');--ar:700/562"><b>UNLOVE</b></a> was the first video on the channel, and thirteen more have followed, from <a class="song" href="https://www.youtube.com/watch?v=aLnXt5M9JDE" target="_blank" rel="noopener" style="--img:url('img/play.jpg');--ar:1"><b>PLAY</b></a> and <a class="song" href="https://www.youtube.com/watch?v=grdUJ2ekLq0" target="_blank" rel="noopener" style="--img:url('img/nft.jpg');--ar:1"><b>NFT</b></a> to <a class="song" href="https://www.youtube.com/watch?v=GdyHv1G1qzY" target="_blank" rel="noopener" style="--img:url('img/kingkong.jpg');--ar:16/9"><b>KING KONG</b></a>, <a class="song" href="https://www.youtube.com/watch?v=NHkjWuJZkfc" target="_blank" rel="noopener" style="--img:url('img/nazaare.jpg');--ar:1"><b>NAZAARE</b></a> and <a class="song" href="https://www.youtube.com/watch?v=_onTXJAgGik" target="_blank" rel="noopener" style="--img:url('img/iamsome.jpg');--ar:16/9"><b>I AM SO ME</b></a>.</p>
+            <p><b>CRAEY</b> (<span class="deva" lang="hi">क्रे</span>) is an independent rapper from India. <a class="song" href="https://www.youtube.com/watch?v=Y-03f1b8jrI" target="_blank" rel="noopener" style="--img:url('img/unlove.webp');--ar:700/562"><b>UNLOVE</b></a> was the first video on the channel, and thirteen more have followed, from <a class="song" href="https://www.youtube.com/watch?v=aLnXt5M9JDE" target="_blank" rel="noopener" style="--img:url('img/play.webp');--ar:1"><b>PLAY</b></a> and <a class="song" href="https://www.youtube.com/watch?v=grdUJ2ekLq0" target="_blank" rel="noopener" style="--img:url('img/nft.webp');--ar:1"><b>NFT</b></a> to <a class="song" href="https://www.youtube.com/watch?v=GdyHv1G1qzY" target="_blank" rel="noopener" style="--img:url('img/kingkong.webp');--ar:16/9"><b>KING KONG</b></a>, <a class="song" href="https://www.youtube.com/watch?v=NHkjWuJZkfc" target="_blank" rel="noopener" style="--img:url('img/nazaare.webp');--ar:1"><b>NAZAARE</b></a> and <a class="song" href="https://www.youtube.com/watch?v=_onTXJAgGik" target="_blank" rel="noopener" style="--img:url('img/iamsome.webp');--ar:16/9"><b>I AM SO ME</b></a>.</p>
             <p>The records swing between loud and quiet, and so does the look: red for the <button type="button" class="ink-mode loud" data-mode-set="loud" aria-pressed="true">loud</button> ones, blue for the <button type="button" class="ink-mode quiet" data-mode-set="quiet" aria-pressed="false">quiet</button> ones. Tap either word to flip the whole page.</p>
             <p>More records are on the way.</p>
           </div>
@@ -1134,60 +1143,60 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
         <a class="btn btn-solid ch-sub" href="https://www.youtube.com/@craey?sub_confirmation=1" target="_blank" rel="noopener"><svg class="play" aria-hidden="true"><use href="#i-play"/></svg>Subscribe</a>
       </div>
       <ol class="list" id="list" reversed>
-        <li><a class="row" href="https://www.youtube.com/watch?v=_onTXJAgGik" target="_blank" rel="noopener" data-title="I Am So Me" data-img="img/iamsome.jpg" data-ar="16/9">
-          <span class="row-no">No. 14</span><span class="row-thumb" style="background-image:url('img/iamsome.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=_onTXJAgGik" target="_blank" rel="noopener" data-title="I Am So Me" data-img="img/iamsome.webp" data-ar="16/9">
+          <span class="row-no">No. 14</span><span class="row-thumb" style="background-image:url('img/iamsome.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">I Am So Me</span><span class="split-b" aria-hidden="true">I Am So Me</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>3:03</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=NHkjWuJZkfc" target="_blank" rel="noopener" data-title="Nazaare" data-img="img/nazaare.jpg" data-ar="1">
-          <span class="row-no">No. 13</span><span class="row-thumb" style="background-image:url('img/nazaare.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=NHkjWuJZkfc" target="_blank" rel="noopener" data-title="Nazaare" data-img="img/nazaare.webp" data-ar="1">
+          <span class="row-no">No. 13</span><span class="row-thumb" style="background-image:url('img/nazaare.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Nazaare</span><span class="split-b" aria-hidden="true">Nazaare</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:12</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=GdyHv1G1qzY" target="_blank" rel="noopener" data-title="King Kong" data-img="img/kingkong.jpg" data-ar="16/9">
-          <span class="row-no">No. 12</span><span class="row-thumb" style="background-image:url('img/kingkong.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=GdyHv1G1qzY" target="_blank" rel="noopener" data-title="King Kong" data-img="img/kingkong.webp" data-ar="16/9">
+          <span class="row-no">No. 12</span><span class="row-thumb" style="background-image:url('img/kingkong.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">King Kong</span><span class="split-b" aria-hidden="true">King Kong</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:46</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=JSBOuYsJl9A" target="_blank" rel="noopener" data-title="Drag On" data-img="img/dragon.jpg" data-ar="16/9">
-          <span class="row-no">No. 11</span><span class="row-thumb" style="background-image:url('img/dragon.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=JSBOuYsJl9A" target="_blank" rel="noopener" data-title="Drag On" data-img="img/dragon.webp" data-ar="16/9">
+          <span class="row-no">No. 11</span><span class="row-thumb" style="background-image:url('img/dragon.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Drag On</span><span class="split-b" aria-hidden="true">Drag On</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:42</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=VwNFlQumZi8" target="_blank" rel="noopener" data-title="Qash" data-img="img/qash.jpg" data-ar="3/2">
-          <span class="row-no">No. 10</span><span class="row-thumb" style="background-image:url('img/qash.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=VwNFlQumZi8" target="_blank" rel="noopener" data-title="Qash" data-img="img/qash.webp" data-ar="3/2">
+          <span class="row-no">No. 10</span><span class="row-thumb" style="background-image:url('img/qash.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Qash</span><span class="split-b" aria-hidden="true">Qash</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:37</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=4r5XViSe7Ig" target="_blank" rel="noopener" data-title="Bad Boy" data-img="img/badboy.jpg" data-ar="1">
-          <span class="row-no">No. 09</span><span class="row-thumb" style="background-image:url('img/badboy.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=4r5XViSe7Ig" target="_blank" rel="noopener" data-title="Bad Boy" data-img="img/badboy.webp" data-ar="1">
+          <span class="row-no">No. 09</span><span class="row-thumb" style="background-image:url('img/badboy.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Bad Boy</span><span class="split-b" aria-hidden="true">Bad Boy</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:58</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=grdUJ2ekLq0" target="_blank" rel="noopener" data-title="NFT" data-img="img/nft.jpg" data-ar="1">
-          <span class="row-no">No. 08</span><span class="row-thumb" style="background-image:url('img/nft.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=grdUJ2ekLq0" target="_blank" rel="noopener" data-title="NFT" data-img="img/nft.webp" data-ar="1">
+          <span class="row-no">No. 08</span><span class="row-thumb" style="background-image:url('img/nft.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">NFT</span><span class="split-b" aria-hidden="true">NFT</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:41</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=AFK-6n5mMC4" target="_blank" rel="noopener" data-title="Game Up" data-img="img/gameup.jpg" data-ar="16/9">
-          <span class="row-no">No. 07</span><span class="row-thumb" style="background-image:url('img/gameup.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=AFK-6n5mMC4" target="_blank" rel="noopener" data-title="Game Up" data-img="img/gameup.webp" data-ar="16/9">
+          <span class="row-no">No. 07</span><span class="row-thumb" style="background-image:url('img/gameup.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Game Up</span><span class="split-b" aria-hidden="true">Game Up</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:18</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=N9UcyBH_u7I" target="_blank" rel="noopener" data-title="Nah" data-img="img/nah.jpg" data-ar="2/1">
-          <span class="row-no">No. 06</span><span class="row-thumb" style="background-image:url('img/nah.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=N9UcyBH_u7I" target="_blank" rel="noopener" data-title="Nah" data-img="img/nah.webp" data-ar="2/1">
+          <span class="row-no">No. 06</span><span class="row-thumb" style="background-image:url('img/nah.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Nah</span><span class="split-b" aria-hidden="true">Nah</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:32</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=lEEbRYm_yU8" target="_blank" rel="noopener" data-title="May Be" data-img="img/maybe.jpg" data-ar="1">
-          <span class="row-no">No. 05</span><span class="row-thumb" style="background-image:url('img/maybe.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=lEEbRYm_yU8" target="_blank" rel="noopener" data-title="May Be" data-img="img/maybe.webp" data-ar="1">
+          <span class="row-no">No. 05</span><span class="row-thumb" style="background-image:url('img/maybe.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">May Be</span><span class="split-b" aria-hidden="true">May Be</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:02</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=USdmOd4f_lI" target="_blank" rel="noopener" data-title="Make It Rain" data-img="img/makeitrain.jpg" data-ar="1">
-          <span class="row-no">No. 04</span><span class="row-thumb" style="background-image:url('img/makeitrain.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=USdmOd4f_lI" target="_blank" rel="noopener" data-title="Make It Rain" data-img="img/makeitrain.webp" data-ar="1">
+          <span class="row-no">No. 04</span><span class="row-thumb" style="background-image:url('img/makeitrain.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Make It Rain</span><span class="split-b" aria-hidden="true">Make It Rain</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:21</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=Ut5WKY-SV8w" target="_blank" rel="noopener" data-title="Gaye Kahaan" data-img="img/gayekahaan.jpg" data-ar="900/318">
-          <span class="row-no">No. 03</span><span class="row-thumb" style="background-image:url('img/gayekahaan.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=Ut5WKY-SV8w" target="_blank" rel="noopener" data-title="Gaye Kahaan" data-img="img/gayekahaan.webp" data-ar="900/318">
+          <span class="row-no">No. 03</span><span class="row-thumb" style="background-image:url('img/gayekahaan.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Gaye Kahaan</span><span class="split-b" aria-hidden="true">Gaye Kahaan</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:55</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=aLnXt5M9JDE" target="_blank" rel="noopener" data-title="Play" data-img="img/play.jpg" data-ar="1">
-          <span class="row-no">No. 02</span><span class="row-thumb" style="background-image:url('img/play.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=aLnXt5M9JDE" target="_blank" rel="noopener" data-title="Play" data-img="img/play.webp" data-ar="1">
+          <span class="row-no">No. 02</span><span class="row-thumb" style="background-image:url('img/play.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Play</span><span class="split-b" aria-hidden="true">Play</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:29</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
-        <li><a class="row" href="https://www.youtube.com/watch?v=Y-03f1b8jrI" target="_blank" rel="noopener" data-title="Unlove" data-img="img/unlove.jpg" data-ar="700/562">
-          <span class="row-no">No. 01</span><span class="row-thumb" style="background-image:url('img/unlove.jpg')"></span>
+        <li><a class="row" href="https://www.youtube.com/watch?v=Y-03f1b8jrI" target="_blank" rel="noopener" data-title="Unlove" data-img="img/unlove.webp" data-ar="700/562">
+          <span class="row-no">No. 01</span><span class="row-thumb" style="background-image:url('img/unlove.webp')"></span>
           <span class="row-title"><span class="split"><span class="split-a">Unlove</span><span class="split-b" aria-hidden="true">Unlove</span></span></span>
           <span class="row-meta"><span><span class="sr">Length </span>2:36</span><span class="row-go"><svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a></li>
       </ol>
@@ -1206,12 +1215,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-ink); ou
       <div class="lab solo">
         <div class="gear">
           <p class="gear-h"><b>Beat lab</b><span id="lab-bpm">92 BPM</span></p>
+          <p class="lab-sent" id="lab-sent" role="status" hidden>Sent to you. Press play.</p>
           <div class="lab-styles" role="group" aria-label="Style"><button type="button" class="lab-style" data-style="boom" aria-pressed="true">Boom bap<small>92</small></button><button type="button" class="lab-style" data-style="drill" aria-pressed="false">Drill<small>142</small></button><button type="button" class="lab-style" data-style="jersey" aria-pressed="false">Jersey club<small>140</small></button><button type="button" class="lab-style" data-style="rage" aria-pressed="false">Rage<small>150</small></button><button type="button" class="lab-style" data-style="phonk" aria-pressed="false">Phonk<small>130</small></button></div>
           <div id="lab-grid" role="group" aria-label="Beat grid, 16 steps"></div>
           <div class="gear-ctl">
             <button type="button" class="btn btn-solid" id="lab-play"><svg class="play" aria-hidden="true"><use href="#i-play"/></svg><span>Play</span></button>
             <button type="button" class="btn" id="lab-shuffle">Shuffle</button>
             <button type="button" class="btn" id="lab-clear">Clear</button>
+            <button type="button" class="btn" id="lab-share">Share</button>
           </div>
         </div>
         <div class="gear deck" hidden>
@@ -1620,7 +1631,7 @@ void main(){
   }
   const photo = new Image();
   photo.decoding = 'async';
-  photo.src = 'img/hero.jpg';
+  photo.src = 'img/hero.webp';
   Promise.race([
     Promise.all([document.fonts.ready, photo.decode ? photo.decode().catch(() => {}) : Promise.resolve()]),
     new Promise(r => setTimeout(r, 1800)),
@@ -1890,7 +1901,7 @@ void main(){
     g.restore();
   }
   let heroImg = null, fontsOk = false;
-  loadImg('img/hero.jpg').then(i => { heroImg = i; });
+  loadImg('img/hero.webp').then(i => { heroImg = i; });
   Promise.all([document.fonts.load('800 100px "Anek Devanagari"', 'क्रे'), document.fonts.load('800 100px "Anek Latin"', 'CRAEY')])
     .then(() => { fontsOk = true; }, () => { fontsOk = true; });
   const palKey = () => pal + mode;
@@ -2290,6 +2301,29 @@ void main(){
     if (labPlaying !== B.on) { labPlaying = B.on; $('#lab-play span').textContent = B.on ? 'Stop' : 'Play'; }
   }
   LB.shown = -1;
+
+  /* ===== Share your beat: the whole beat is in the link, nothing is stored or sent ===== */
+  const BEAT_RE = /^#beat=(boom|drill|jersey|rage|phonk)-([0-9a-f]{24})$/;
+  const beatCode = () => LB.style + '-' + ROWS.map(r => LB.grid[r].reduce((n, v) => n * 2 + (v ? 1 : 0), 0).toString(16).padStart(4, '0')).join('');
+  function beatFromHash() {
+    const m = BEAT_RE.exec(location.hash);
+    if (!m) return false;
+    labLoad(m[1]);
+    ROWS.forEach((r, k) => { const n = parseInt(m[2].slice(k * 4, k * 4 + 4), 16); LB.grid[r] = Array.from({ length: 16 }, (_, i) => ((n >> (15 - i)) & 1) === 1); });
+    labShow(); DK.dirty = true;
+    $('#lab-sent').hidden = false;
+    const pl = $('#lab-play'); pl.classList.add('ping'); pl.addEventListener('click', () => pl.classList.remove('ping'), { once: true });
+    return true;
+  }
+  const toBeat = () => setTimeout(() => $('#lab').scrollIntoView({ block: 'start' }), 350);
+  addEventListener('load', () => { if (beatFromHash()) toBeat(); });
+  addEventListener('hashchange', () => { if (beatFromHash()) toBeat(); });
+  $('#lab-share').addEventListener('click', async () => {
+    const hash = '#beat=' + beatCode(), url = location.href.split('#')[0] + hash;
+    try { history.replaceState(null, '', hash); } catch (e) {}
+    if (navigator.share) { try { await navigator.share({ title: 'CRAEY Beat lab', url }); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
+    try { await navigator.clipboard.writeText(url); say('Link copied'); sfx('tick'); } catch (e) { say('Copy the link from the address bar'); }
+  });
 
   /* ===== The record: the lab's beat on vinyl, with CRAEY's photo as the label. Drag to scratch. ===== */
   const deckCv = $('#deck-cv'), dg = deckCv.getContext('2d'), spinBtn = $('#deck-spin'), cutBtn = $('#deck-cut');
